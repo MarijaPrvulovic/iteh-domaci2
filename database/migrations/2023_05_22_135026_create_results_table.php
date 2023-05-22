@@ -15,6 +15,9 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('quiz_id')->constrained()->onDelete('cascade');
+        
             $table->timestamps();
         });
     }
